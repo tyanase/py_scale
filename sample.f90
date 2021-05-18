@@ -31,15 +31,7 @@ subroutine sample(&
   use scale
   use scale_precision
   use scale_const, only: &
-    PRE00 => CONST_PRE00, &
-    Rdry  => CONST_Rdry,  &
-    Rvap  => CONST_Rvap,  &
-    CPdry => CONST_CPdry, &
     EPSvap => CONST_EPSvap
-  use scale_atmos_hydrometeor, only: &
-    CPvap => CP_VAPOR, &
-    CL    => CP_WATER, &
-    CI    => CP_ICE
   use scale_bulkflux, only: &
     BULKFLUX_setup, &
     BULKFLUX
@@ -93,9 +85,9 @@ subroutine sample(&
   SFLX_MV = 0
 
   do t = TS, TE
-    call SATURATION_psat_all( IA, IS, IE, JA, JS, JE, &
-    SFC_TEMP(:,:,t), & ! [IN]
-    SFC_PSAT(:,:,t)  ) ! [OUT]
+    call SATURATION_psat_all( IA, IS, IE, JA, JS, JE, & ! [IN]
+                                      SFC_TEMP(:,:,t), & ! [IN]
+                                      SFC_PSAT(:,:,t)  ) ! [OUT]
 
     do j = JS, JE
     do i = IS, IE
