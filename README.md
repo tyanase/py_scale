@@ -29,6 +29,13 @@ $ export SCALE_NETCDF_INCLUDE="-I/usr/local/netcdf-c-4.7.3/include"
 $ export SCALE_ENABLE_OPENMP="F"
 ```
 
+* download SCALE
+```
+$ wget https://scale.riken.jp/archives/scale-5.3.3.tar.gz
+$ tar zxvf scale-5.3.3.tar.gz
+$ mv scale-5.3.3 py_scale-5.3.3
+```
+
 * modify sysdep/Makedef.Linux64-gnu-ompi
 ```
 FFLAGS_CORE = -cpp -m64                                                                     \
@@ -41,9 +48,6 @@ CFLAGS_FAST  = -O3 -m64 -fPIC
 
 * compile SCALE (refer to "SCALE User's Guide Chapter 5.3 How to use scale library")
 ```
-$ wget https://scale.riken.jp/archives/scale-5.3.3.tar.gz
-$ tar zxvf scale-5.3.3.tar.gz
-$ mv scale-5.3.3 py_scale-5.3.3
 $ cd py_scale-5.3.3/scalelib/src
 $ make -j 2
 ```
